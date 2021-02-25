@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>IEEE CCEM</title>
+		<meta property="og:title" content="IEEE CCEM" />
+		<meta property="og:url" content="https://virtuallightning-f0056.web.app" />
+		<meta name="description" content="Virtual lamp lighting ceremony" />
+		<meta property="og:description" content="Virtual lamp lighting ceremony" />
+		<meta property="og:image" content="/iee-icon-touch.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="/favicon.ico" rel="shortcut icon" />
+		<link
+			rel="iee-icon-touch"
+			sizes="180x180"
+			href="/iee-icon-touch.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a4123e" />
+		<meta name="apple-mobile-web-app-title" content="IEEE CCEM" />
+		<meta name="application-name" content="IEEE CCEM" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="theme-color" content="#ffffff" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+			integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+			crossorigin="anonymous"
+		/>
+		<script src="/__/firebase/7.19.0/firebase-app.js"></script>
+		<script src="/__/firebase/7.19.0/firebase-database.js"></script>
+		<script src="/__/firebase/init.js"></script>
+	</head>
+	<body>
+		<div class="container" style="text-align: center">
+			<img src="IEEE_Logo.png" alt="Combined logo" class="img-fluid" />
+		</div>
+		<div class="container" style="text-align: center">
+			<h2>Lamp lighting ceremony of IEEE CCEM</h2>
+			<img
+				id="lamp"
+				alt="Lamp loading ..."
+				class="img-fluid img-thumbnail rounded float-left"
+			/><br />
+			<img
+				src="amma.png"
+				alt="Lamp loading ..."
+				class="img-fluid img-thumbnail rounded float-right"
+			/><br />
+			<input
+				type="button"
+				id="alex"
+				value="Prof. Alex Waibel"
+				class="btn btn-secondary"
+				onclick="light('alex')"
+			/>
+			        <input
+                type="button"
+                id="vaijayanthi"
+                value="Ms. Vaijayanthi"
+                class="btn btn-secondary"
+                onclick="light('vaijayanthi')"
+        />
+	<input
+                type="button"
+                id="mohan"
+                value="Dr. Mohan"
+                class="btn btn-secondary"
+                onclick="light('mohan')"
+        />
+			<input
+				type="button"
+				id="raj"
+				value="Raj Tumuluri"
+				class="btn btn-secondary"
+				onclick="light('raj')"
+			/>
+			<input
+				type="button"
+				id="janakiram"
+				value="Prof. Janakiram"
+				class="btn btn-secondary"
+				onclick="light('janakiram')"
+			/>
+			<input
+				type="button"
+				id="ganapathi"
+				value="Dr. Ganapathi Hegde"
+				class="btn btn-secondary"
+				onclick="light('ganapathi')"
+			/>
+			<input
+				type="button"
+				id="sai"
+				value="Br. Sai Ram"
+				class="btn btn-secondary"
+				onclick="light('sai')"
+			/>
+			<br />
+			<input
+				type="reset"
+				value="Reset"
+				class="btn btn-danger"
+				onclick="reset()"
+			/>
+		</div>
+		<script>
+			function light(name) {
+				firebase
+					.database()
+					.ref("people/" + name)
+					.set({
+						status: "on",
+					});
+				firebase
+					.database()
+					.ref("lamp/count")
+					.set(firebase.database.ServerValue.increment(1));
+			}
+			function reset() {
+				firebase.database().ref("resetLog").set({
+					time: firebase.database.ServerValue.TIMESTAMP,
+				});
+				firebase.database().ref("people").remove();
+				firebase.database().ref("lamp").remove();
+			}
+			firebase
+				.database()
+				.ref("lamp/count")
+				.on("value", function (snapshot) {
+					console.log(snapshot.val());
+					if (snapshot.val() == null) {
+						lamp.src = "0.png";
+					} else if (snapshot.val() > 7) {
+						lamp.src = "7.jpg";
+					} else {
+						lamp.src = snapshot.val() + ".jpg";
+					}
+				});
+			firebase
+				.database()
+				.ref("people/alex/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("alex")
+							.classList.replace("btn-secondary", "btn-warning");
+						console.log("alex: " + snapshot.val());
+					} else {
+						document
+							.getElementById("alex")
+							.classList.replace("btn-warning", "btn-secondary");
+						console.log("alex: " + snapshot.val());
+					}
+				});
+			firebase
+				.database()
+				.ref("people/mohan/status")
+				.on("value", function (snapshot) {
+					if (snapshot.val() == "on") {
+						document
+							.getElementById("mohan")
+							.classList.replace("btn-secondary", "btn-warning");
+						console.log("mohan: " + snapshot.val());
+					} else {
+						document
+							.getElementById("mohan")
+							.classList.replace("btn-warning", "btn-secondary");
+						console.log("mohan: " + snapshot.val());
+					}
+				});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+{
+    "name": "IEEE CCEM",
+    "short_name": "IEEE CCEM",
+    "icons": [
+        {
+            "src": "/iee-icon-touch.png",
+            "sizes": "287X84",
+            "type": "image/png"
+        },
+        {
+            "src": "/iee-icon-touch.png",
+            "sizes": "287X84",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ffffff",
+    "background_color": "#ffffff",
+    "start_url": "https://amrita-farewell.web.app/?utm_source=homescreen",
+    "display": "standalone",
+    "lang": "English",
+    "orientation": "any",
+    "description": "2020 Batch Farewell"
+}
