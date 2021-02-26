@@ -104,18 +104,18 @@
 				<div class="row">
 					<div class="col-md-5">
 						<div class="row">
-							<div class="col-md-12 invisible" id="alexDiv">
+							<!-- <div class="col-md-12 invisible" id="alexDiv">
 
 								<img src="alexWaibel.jpg" style="display:block; height: 75%; width:50%; margin: auto;" class="center">
 								<p style="text-align:center">Prof. Alex Waibel</p>
-							</div>
+							</div> -->
 						</div>
 						<div class="row">
-							<div class="col-md-12 invisible" id="mohanDiv">
+							<!-- <div class="col-md-12 invisible" id="mohanDiv">
 								<img src="drMohan.jpg" style="display:block; height: 75%; width:50%; margin: auto;" class="center">
 								<p style="text-align:center">Dr. Ts Mohan</p>
 
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<div class="col-md-4 col-xl-2">
@@ -130,27 +130,27 @@
 					</div>
 					<div class="col-md-5">
 						<div class="row">
-							<div class="col-md-12 invisible" id="rajDiv">
+							<!-- <div class="col-md-12 invisible" id="rajDiv">
 								<img src="rajTumuluri.jpeg" style="display:block; height: 75%; width:50%; margin: auto;" class="center">
 								<p style="text-align:center">Raj Tumuluri</p>
 
-							</div>
+							</div> -->
 						</div>
 						<div class="row">
-							<div class="col-md-12 invisible" id="janakiramDiv">
+							<!-- <div class="col-md-12 invisible" id="janakiramDiv">
 
 								<img src="dJanakiram.jpg" style="display:block; height: 75%; width:50%; margin: auto;" class="center">
 								<p style="text-align:center">Prof Janakiram</p>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-4"></div>
-					<div class="col-md-5 invisible" id="vaijayanhtiDiv">
+					<!-- <div class="col-md-5 invisible" id="vaijayanhtiDiv">
 						<img src="msVaijayanthi.jpg" style="display:block; height: 75%; width:50%; margin: auto;" class="center">
 						<p style="text-align:center">Ms Vaijayanthi</p>
-					</div>
+					</div> -->
 					<div class="col-md-4"></div>
 				</div>
 			</div>
@@ -216,76 +216,76 @@
 						lamp.src = snapshot.val() + ".jpg";
 					}
 				});
-				firebase
-				.database()
-				.ref("people/alex/status")
-				.on("value", function (snapshot) {
-					if (snapshot.val() == "on") {
-						document
-							.getElementById("alexDiv")
-							.classList.replace("invisible", "visible");
-					} else {
-						document
-							.getElementById("alexDiv")
-							.classList.replace("visible", "invisible");
-					}
-				});
-				firebase
-				.database()
-				.ref("people/janakiram/status")
-				.on("value", function (snapshot) {
-					if (snapshot.val() == "on") {
-						document
-							.getElementById("janakiramDiv")
-							.classList.replace("invisible", "visible");
-					} else {
-						document
-							.getElementById("janakiramDiv")
-							.classList.replace("visible", "invisible");
-					}
-				});
-				firebase
-				.database()
-				.ref("people/vaijayanthi/status")
-				.on("value", function (snapshot) {
-					if (snapshot.val() == "on") {
-						document
-							.getElementById("vaijayanhtiDiv")
-							.classList.replace("invisible", "visible");
-					} else {
-						document
-							.getElementById("vaijayanhtiDiv")
-							.classList.replace("visible", "invisible");
-					}
-				});
-				firebase
-				.database()
-				.ref("people/mohan/status")
-				.on("value", function (snapshot) {
-					if (snapshot.val() == "on") {
-						document
-							.getElementById("mohanDiv")
-							.classList.replace("invisible", "visible");
-					} else {
-						document
-							.getElementById("mohanDiv")
-							.classList.replace("visible", "invisible");
-					}
-				});
-				firebase
-				.database()
-				.ref("people/raj/status")
-				.on("value", function (snapshot) {
-					if (snapshot.val() == "on") {
-						document
-							.getElementById("rajDiv")
-							.classList.replace("invisible", "visible");
-					} else {
-						document
-							.getElementById("rajDiv")
-							.classList.replace("visible", "invisible");
-					}
-				});
+				// firebase
+				// .database()
+				// .ref("people/alex/status")
+				// .on("value", function (snapshot) {
+				// 	if (snapshot.val() == "on") {
+				// 		document
+				// 			.getElementById("alexDiv")
+				// 			.classList.replace("invisible", "visible");
+				// 	} else {
+				// 		document
+				// 			.getElementById("alexDiv")
+				// 			.classList.replace("visible", "invisible");
+				// 	}
+				// });
+				// firebase
+				// .database()
+				// .ref("people/janakiram/status")
+				// .on("value", function (snapshot) {
+				// 	if (snapshot.val() == "on") {
+				// 		document
+				// 			.getElementById("janakiramDiv")
+				// 			.classList.replace("invisible", "visible");
+				// 	} else {
+				// 		document
+				// 			.getElementById("janakiramDiv")
+				// 			.classList.replace("visible", "invisible");
+				// 	}
+				// });
+				// firebase
+				// .database()
+				// .ref("people/vaijayanthi/status")
+				// .on("value", function (snapshot) {
+				// 	if (snapshot.val() == "on") {
+				// 		document
+				// 			.getElementById("vaijayanhtiDiv")
+				// 			.classList.replace("invisible", "visible");
+				// 	} else {
+				// 		document
+				// 			.getElementById("vaijayanhtiDiv")
+				// 			.classList.replace("visible", "invisible");
+				// 	}
+				// });
+				// firebase
+				// .database()
+				// .ref("people/mohan/status")
+				// .on("value", function (snapshot) {
+				// 	if (snapshot.val() == "on") {
+				// 		document
+				// 			.getElementById("mohanDiv")
+				// 			.classList.replace("invisible", "visible");
+				// 	} else {
+				// 		document
+				// 			.getElementById("mohanDiv")
+				// 			.classList.replace("visible", "invisible");
+				// 	}
+				// });
+				// firebase
+				// .database()
+				// .ref("people/raj/status")
+				// .on("value", function (snapshot) {
+				// 	if (snapshot.val() == "on") {
+				// 		document
+				// 			.getElementById("rajDiv")
+				// 			.classList.replace("invisible", "visible");
+				// 	} else {
+				// 		document
+				// 			.getElementById("rajDiv")
+				// 			.classList.replace("visible", "invisible");
+				// 	}
+				// });
 		</script>
 		<script>
 			if (typeof jQuery == "undefined") {
